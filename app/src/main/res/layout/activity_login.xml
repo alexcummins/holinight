@@ -15,12 +15,12 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp"
-        android:id="@+id/arrowImageView"
+        android:id="@+id/logo"
         android:layout_height="150dp" />
 
     <RelativeLayout
         android:layout_height="45dp"
-        android:layout_below="@+id/arrowImageView"
+        android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:id="@+id/email_ly"

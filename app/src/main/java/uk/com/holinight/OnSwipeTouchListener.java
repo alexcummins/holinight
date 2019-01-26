@@ -1,11 +1,14 @@
 package uk.com.holinight;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+
+import static android.content.ContentValues.TAG;
 
 public class OnSwipeTouchListener implements OnTouchListener {
 
@@ -16,9 +19,14 @@ public class OnSwipeTouchListener implements OnTouchListener {
     }
 
     public void onSwipeLeft() {
+
+
+            Log.d(TAG, "Swipe Left");
     }
 
     public void onSwipeRight() {
+        Log.d(TAG, "Swipe Right");
+
     }
 
     public boolean onTouch(View v, MotionEvent event) {

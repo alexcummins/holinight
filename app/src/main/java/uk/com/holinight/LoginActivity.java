@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText emailField;
     private EditText passwordField;
+    private ImageView logo;
     private static String TAG = "Login Activity";
 
     @Override
@@ -26,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
 
         // Check if user is signed in (non-null) and update UI accordingly.
-  FirebaseUser currentUser = mAuth.getCurrentUser();
+//  FirebaseUser currentUser = mAuth.getCurrentUser();
        // updateUI(currentUser);
     }
 
@@ -38,7 +40,8 @@ public class LoginActivity extends AppCompatActivity {
 
         emailField = (EditText) findViewById(R.id.email_text);
         passwordField = (EditText) findViewById(R.id.password_text);
-
+        logo = findViewById(R.id.logo);
+        logo.setOnTouchListener(new OnSwipeTouchListener(this));
 
     }
 

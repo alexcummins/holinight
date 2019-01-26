@@ -11,14 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".HostOrJoin">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".JoinParty" />
+        <activity android:name=".JoinParty"></activity>
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -31,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SwipeSearch" />
+        <activity android:name=".SwipeSearch"></activity>
     </application>
 
 </manifest>

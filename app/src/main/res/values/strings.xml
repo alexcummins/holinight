@@ -76,4 +76,5 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="title_activity_swipe_search">SwipeSearch</string>
+    <string name="">Send</string>
 </resources>

@@ -112,6 +112,7 @@
             android:layout_marginRight="20dp"
             style="?android:borderlessButtonStyle"
             android:textColor="#ffffff"
+            android:background="@drawable/blue_button"
             android:textSize="16sp"
             android:onClick="loginButton" />
     </LinearLayout>

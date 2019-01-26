@@ -77,4 +77,6 @@
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="title_activity_swipe_search">SwipeSearch</string>
     <string name="">Send</string>
+    <string name="button_host">Host</string>
+    <string name="button_join">join</string>
 </resources>

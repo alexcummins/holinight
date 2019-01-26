@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-//        mAuth = FirebaseAuth.getInstance();
+    mAuth = FirebaseAuth.getInstance();
 
         emailField = (EditText) findViewById(R.id.email_text);
         passwordField = (EditText) findViewById(R.id.password_text);
@@ -64,37 +64,42 @@ public class LoginActivity extends AppCompatActivity {
 
 
   public void loginButton(View v) {
-        String email = emailField.getText().toString();
-        String password = passwordField.getText().toString();
-      verifyLogin(email, password);
-//    mAuth
-//        .signInWithEmailAndPassword(email, password)
-//        .addOnCompleteListener(
-//            this,
-//            new OnCompleteListener<AuthResult>() {
-//              @Override
-//              public void onComplete(@NonNull Task<AuthResult> task) {
-//                if (task.isSuccessful()) {
-//                  // Sign in success, update UI with the signed-in user's information
-//                  Log.d(TAG, "signInWithEmail:success");
-//                  FirebaseUser user = mAuth.getCurrentUser();
-//                  updateUI(user);
-//                } else {
-//                  // If sign in fails, display a message to the user.
-//                  Log.w(TAG, "signInWithEmail:failure", task.getException());
-//                  Toast.makeText(
-//                          LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT)
-//                      .show();
-//                  updateUI(null);
-//                }
-//
-//                // ...
-//              }
-//            });
+        String email = "blank";
+        email = emailField.getText().toString();
+        String password = "blank";
+
+        password =  passwordField.getText().toString();
+      //verifyLogin(email, password);
+    mAuth
+        .signInWithEmailAndPassword(email, password)
+        .addOnCompleteListener(
+            this,
+            new OnCompleteListener<AuthResult>() {
+              @Override
+              public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                  // Sign in success, update UI with the signed-in user's information
+                  Log.d(TAG, "signInWithEmail:success");
+                  FirebaseUser user = mAuth.getCurrentUser();
+                  updateUI(user);
+                } else {
+                  // If sign in fails, display a message to the user.
+                  Log.w(TAG, "signInWithEmail:failure", task.getException());
+                  Toast.makeText(
+                          LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT)
+                      .show();
+                  updateUI(null);
+                }
+
+                // ...
+              }
+            });
     }
 
     private void updateUI(FirebaseUser user) {
         Log.d(TAG, "update screen");
+        Intent nextActivity = new Intent(this, SwipeSearch.class);
+        startActivity(nextActivity);
     }
 
 
@@ -109,28 +114,35 @@ public class LoginActivity extends AppCompatActivity {
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
                 dialog.cancel();
+
                 if (result != null) {
                     try {
-                        JSONObject items = new JSONObject(result);
-                        int value = items.getInt("value");
-                        if (value == 0) {
-                            Toast.makeText(LoginActivity.this,
-                                    "Please enter correct e-mail or password!", Toast.LENGTH_LONG).show();
-                        } else {
+                        JSONArray jsonarray = new JSONArray(result);
+            for (int i = 0; i < jsonarray.length(); i++) {
+              JSONObject jsonobject = jsonarray.getJSONObject(i);
+              Log.d(TAG, result);
+              //                        JSONObject items = new JSONObject(result);
+              //                        int value = items.getInt("value");
+              if (Integer.parseInt(jsonobject.getString("id")) == 1) {
+                Toast.makeText(
+                        LoginActivity.this,
+                        "Please enter correct e-mail or password!",
+                        Toast.LENGTH_LONG)
+                    .show();
+              } else {
 
-                            JSONArray userDataArray = items.getJSONArray("users_data");
-                            JSONObject userDataJsonObject = userDataArray
-                                    .getJSONObject(0);
+                //                            JSONArray userDataArray =
+                // items.getJSONArray("users_data");
+                //                            JSONObject userDataJsonObject = userDataArray
+                //                                    .getJSONObject(0);
 
-
-                            Log.d(TAG, "email "+userDataJsonObject.getString("email"));
-
-                            SharedPreferences prefs = PreferenceManager
-                                    .getDefaultSharedPreferences(LoginActivity.this);
-                            SharedPreferences.Editor ed = prefs.edit();
-
-                            }
-
+                Log.d(TAG, "email " + jsonobject.getString("name"));
+                Log.d(TAG, "password" + jsonobject.get("Hostname"));
+                SharedPreferences prefs =
+                    PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+                SharedPreferences.Editor ed = prefs.edit();
+              }
+}
 
                             EditText email = (EditText) findViewById(R.id.email_text);
                             email.setText("");
@@ -174,7 +186,7 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
 
                 }
-
+Log.d(TAG,  responseStr.toString());
                 return responseStr.toString();
             }
 

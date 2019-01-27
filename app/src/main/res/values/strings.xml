@@ -80,4 +80,5 @@
     <string name="button_join">Join</string>
     <string name="facebook_app_id">300055137254607</string>
     <string name="fb_login_protocol_scheme">fb300055137254607</string>
+    <string name="button_yourevents">Your Events</string>
 </resources>

@@ -7,24 +7,82 @@
     android:layout_height="match_parent"
     tools:context=".JoinParty">
 
-    <EditText
-        android:id="@+id/Host"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Join"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/partyImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageBottom"
+        app:layout_constraintEnd_toStartOf="@+id/vRight"
+        app:layout_constraintStart_toStartOf="@+id/vLeft"
+        app:layout_constraintTop_toTopOf="@+id/imageTop"
+        app:srcCompat="@drawable/logo" />
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:lines="10"
+        android:text="Description"
+        app:layout_constraintBottom_toTopOf="@+id/hBottom"
+        app:layout_constraintEnd_toStartOf="@+id/vRight"
+        app:layout_constraintStart_toStartOf="@+id/vLeft"
+        app:layout_constraintTop_toTopOf="@+id/descriptionTop" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Join"
-        tools:layout_editor_absoluteX="256dp"
-        tools:layout_editor_absoluteY="15dp" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="40dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="40dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/imageTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="50dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/imageBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/descriptionTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/hTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="40dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/hBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="40dp" />
 
 </android.support.constraint.ConstraintLayout>

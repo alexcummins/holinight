@@ -46,4 +46,9 @@ public class HostOrJoin extends AppCompatActivity {
         Intent i = new Intent(this, YourEvents.class);
         startActivity(i);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 }

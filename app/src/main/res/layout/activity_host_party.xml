@@ -66,29 +66,40 @@
         app:layout_constraintTop_toTopOf="@+id/hTop"
  />
 
-    <TextView
-        android:id="@+id/location"
+    <EditText
+        android:id="@+id/eventName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Location: London"
+        android:hint="Event Name"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
         app:layout_constraintTop_toBottomOf="@+id/partyImage" />
 
     <EditText
         android:id="@+id/description"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Description"
-        app:layout_constraintBottom_toTopOf="@+id/delete"
-        app:layout_constraintEnd_toStartOf="@+id/vRight"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Event Description"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
         app:layout_constraintTop_toBottomOf="@+id/location" />
+
+    <EditText
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:hint="Location"
+        app:layout_constraintStart_toStartOf="@+id/vLeft"
+        app:layout_constraintTop_toBottomOf="@+id/eventName" />
+
+    <EditText
+        android:id="@+id/maxRadius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="Max Radius (Miles)"
+        app:layout_constraintStart_toStartOf="@+id/vLeft"
+        app:layout_constraintTop_toBottomOf="@+id/description" />
+
 
     <Button
         android:id="@+id/create"

@@ -40,8 +40,8 @@ public class fieldJSONParser {
             this.name           = jsonObject.getString("name");
             this.eventID        = jsonObject.getString("eventID");
             this.description    = jsonObject.getString("description");
-            this.hostID         = jsonObject.getString("hostname");
-            this.hostname       = jsonObject.getString("hostname");
+            this.hostID         = jsonObject.getString("hostID");
+            this.hostname       = jsonObject.getString("hostName");
             this.displayTime    = jsonObject.getString("displayTime");
             this.startTime      = jsonObject.getString("statTime");
             this.endTime        = jsonObject.getString("endTime");

@@ -3,173 +3,225 @@ package uk.com.holinight;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 public class fieldJSONParser {
 
-    private String name;
-    private String eventID;
-    private String description;
-    private String hostID;
-    private String hostname;
-    private String displayTime;
-    private String startTime;
-    private String endTime;
-    private String location;
-    private String maxRadius;
-    private String dateCreated;
-    private String dateModified;
-    private String userName;
-    private String userID;
+  private String name;
+  private String eventID;
+  private String description;
+  private String hostID;
+  private String hostname;
+  private String displayTime;
+  private String startTime;
+  private String endTime;
+  private String location;
+  private String maxRadius;
+  private String dateCreated;
+  private String dateModified;
+  private String userName;
+  private String userID;
+  private String eventDescription;
+  private String eventName;
+  private String acceptDecline;
+  private String eventImageURL;
 
+  public String getEventImageURL() {
+    return eventImageURL;
+  }
 
-    public fieldJSONParser() {
+  public void setEventImageURL(String eventImageURL) {
+    this.eventImageURL = eventImageURL;
+  }
+
+  public String getUserImageURL() {
+    return userImageURL;
+  }
+
+  public void setUserImageURL(String userImageURL) {
+    this.userImageURL = userImageURL;
+  }
+
+  private String userImageURL;
+
+  public fieldJSONParser() {}
+
+  public fieldJSONParser(
+      String name,
+      String eventID,
+      String description,
+      String hostID,
+      String hostname,
+      String displayTime,
+      String startTime,
+      String endTime,
+      String location,
+      String maxRadius,
+      String dateCreated,
+      String dateModified,
+      String userName,
+      String userID,
+      String acceptDecline,
+      String eventName,
+      String eventDescription,
+      String eventImageURL,
+      String userImageURL) {}
+
+  public fieldJSONParser(JSONObject jsonObject) {
+
+    try {
+      this.name = jsonObject.getString("name");
+      this.eventID = jsonObject.getString("eventID");
+      this.description = jsonObject.getString("eventDescription");
+      this.hostID = jsonObject.getString("hostID");
+      this.hostname = jsonObject.getString("hostName");
+      this.displayTime = jsonObject.getString("displayTime");
+      this.startTime = jsonObject.getString("startTime");
+      this.endTime = jsonObject.getString("endTime");
+      this.location = jsonObject.getString("location");
+      this.maxRadius = jsonObject.getString("maxRadius");
+      this.dateCreated = jsonObject.getString("dateCreated");
+      this.dateModified = jsonObject.getString("dateModified");
+      //this.userName = jsonObject.getString("userName");
+      this.userID = jsonObject.getString("userID");
+      this.acceptDecline = jsonObject.getString("acceptDecline");
+
+    } catch (JSONException e) {
+      e.printStackTrace();
     }
+  }
 
-    public fieldJSONParser(
-            String name, String eventID, String description, String hostID, String hostname, String displayTime,
-            String startTime, String endTime, String location, String maxRadius, String dateCreated,
-            String dateModified, String userName, String userID) {
+  public String getEventDescription() {
+    return eventDescription;
+  }
 
+  public void setEventDescription(String eventDescription) {
+    this.eventDescription = eventDescription;
+  }
 
-    }
+  public String getEventName() {
+    return eventName;
+  }
 
-    public fieldJSONParser(JSONObject jsonObject) {
+  public void setEventName(String eventName) {
+    this.eventName = eventName;
+  }
 
+  public String getAcceptDecline() {
+    return acceptDecline;
+  }
 
-        try {
-            this.name           = jsonObject.getString("name");
-            this.eventID        = jsonObject.getString("eventID");
-            this.description    = jsonObject.getString("description");
-            this.hostID         = jsonObject.getString("hostname");
-            this.hostname       = jsonObject.getString("hostname");
-            this.displayTime    = jsonObject.getString("displayTime");
-            this.startTime      = jsonObject.getString("statTime");
-            this.endTime        = jsonObject.getString("endTime");
-            this.location       = jsonObject.getString("location");
-            this.maxRadius      = jsonObject.getString("maxRadius");
-            this.dateCreated    = jsonObject.getString("dateCreated");
-            this.dateModified   = jsonObject.getString("dateModified");
-            this.userName       = jsonObject.getString("userName");
-            this.userID         = jsonObject.getString("userID");
+  public void setAcceptDecline(String acceptDecline) {
+    this.acceptDecline = acceptDecline;
+  }
 
+  public String getName() {
+    return name;
+  }
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
+  public String getEventID() {
+    return eventID;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setEventID(String eventID) {
+    this.eventID = eventID;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public String getEventID() {
-        return eventID;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public void setEventID(String eventID) {
-        this.eventID = eventID;
-    }
+  public String getHostID() {
+    return hostID;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public void setHostID(String hostID) {
+    this.hostID = hostID;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public String getHostname() {
+    return hostname;
+  }
 
-    public String getHostID() {
-        return hostID;
-    }
+  public void setHostname(String hostname) {
+    this.hostname = hostname;
+  }
 
-    public void setHostID(String hostID) {
-        this.hostID = hostID;
-    }
+  public String getDisplayTime() {
+    return displayTime;
+  }
 
-    public String getHostname() {
-        return hostname;
-    }
+  public void setDisplayTime(String displayTime) {
+    this.displayTime = displayTime;
+  }
 
-    public void setHostname(String hostname) {
-        this.hostname = hostname;
-    }
+  public String getStartTime() {
+    return startTime;
+  }
 
-    public String getDisplayTime() {
-        return displayTime;
-    }
+  public void setStartTime(String startTime) {
+    this.startTime = startTime;
+  }
 
-    public void setDisplayTime(String displayTime) {
-        this.displayTime = displayTime;
-    }
+  public String getEndTime() {
+    return endTime;
+  }
 
-    public String getStartTime() {
-        return startTime;
-    }
+  public void setEndTime(String endTime) {
+    this.endTime = endTime;
+  }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
+  public String getLocation() {
+    return location;
+  }
 
-    public String getEndTime() {
-        return endTime;
-    }
+  public void setLocation(String location) {
+    this.location = location;
+  }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
-    }
+  public String getMaxRadius() {
+    return maxRadius;
+  }
 
-    public String getLocation() {
-        return location;
-    }
+  public void setMaxRadius(String maxRadius) {
+    this.maxRadius = maxRadius;
+  }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
+  public String getDateCreated() {
+    return dateCreated;
+  }
 
-    public String getMaxRadius() {
-        return maxRadius;
-    }
+  public void setDateCreated(String dateCreated) {
+    this.dateCreated = dateCreated;
+  }
 
-    public void setMaxRadius(String maxRadius) {
-        this.maxRadius = maxRadius;
-    }
+  public String getDateModified() {
+    return dateModified;
+  }
 
-    public String getDateCreated() {
-        return dateCreated;
-    }
+  public void setDateModified(String dateModified) {
+    this.dateModified = dateModified;
+  }
 
-    public void setDateCreated(String dateCreated) {
-        this.dateCreated = dateCreated;
-    }
+  public String getUserName() {
+    return userName;
+  }
 
-    public String getDateModified() {
-        return dateModified;
-    }
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
 
-    public void setDateModified(String dateModified) {
-        this.dateModified = dateModified;
-    }
+  public String getUserID() {
+    return userID;
+  }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
-
-
+  public void setUserID(String userID) {
+    this.userID = userID;
+  }
 }

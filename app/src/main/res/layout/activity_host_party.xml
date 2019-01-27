@@ -64,6 +64,7 @@
         app:layout_constraintEnd_toStartOf="@+id/vRight"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
         app:layout_constraintTop_toTopOf="@+id/hTop"
+        android:onClick="imageFind"
  />
 
     <EditText
@@ -86,7 +87,6 @@
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:hint="@string/location"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
         app:layout_constraintTop_toBottomOf="@+id/eventName" />
@@ -106,18 +106,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Create"
-        app:layout_constraintBaseline_toBaselineOf="@+id/delete"
-        app:layout_constraintEnd_toStartOf="@+id/delete" />
+        app:layout_constraintBottom_toTopOf="@+id/desBottom"
+        app:layout_constraintEnd_toStartOf="@+id/vRight"
+        android:onClick="submitButton"/>
 
-    <Button
-        android:id="@+id/delete"
+
+    <EditText
+        android:id="@+id/timeField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Delete"
-        app:layout_constraintBottom_toTopOf="@+id/desBottom"
-        app:layout_constraintEnd_toStartOf="@+id/vRight" />
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="HH:MM:SS"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/vLeft"
+        app:layout_constraintTop_toBottomOf="@+id/maxRadius" />
 
 </android.support.constraint.ConstraintLayout>

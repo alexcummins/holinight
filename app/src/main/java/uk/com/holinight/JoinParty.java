@@ -100,8 +100,6 @@ public class JoinParty extends AppCompatActivity {
 
             } else {
               partyImage.setImageResource(R.drawable.empty);
-              location.setText("");
-              description.setText("");
             }
           }
         });

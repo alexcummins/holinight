@@ -34,7 +34,8 @@ public class HostOrJoin extends AppCompatActivity {
     }
 
     public void sendToHostActivity(View v) {
-        Intent i = new Intent(this, )
+        Intent i = new Intent(this, JoinParty.class);
+        startActivity(i);
     }
     public void sendToJoinActivity(View v) {
         Intent i = new Intent(this, JoinParty.class);

@@ -16,11 +16,10 @@
 
         <Button
             android:id="@+id/HostMain"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="false"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="32dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="250dp"
             android:background="@drawable/blue_button"
             android:onClick="sendToHostActivity"
             android:text="@string/button_host"
@@ -28,16 +27,25 @@
 
         <Button
             android:id="@+id/JoinMain"
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/HostMain"
             android:layout_centerInParent="true"
-            android:layout_marginTop="16dp"
             android:background="@drawable/blue_button"
+            android:onClick="sendToJoinActivity"
             android:text="@string/button_join"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
-            android:onClick="sendToJoinActivity"/>
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
 
+        <Button
+            android:id="@+id/YourEvents"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="250dp"
+            android:background="@drawable/blue_button"
+            android:onClick="sendToYourEventsActivity"
+            android:text="@string/button_yourevents"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"/>
     </RelativeLayout>
 
 

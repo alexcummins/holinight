@@ -5,6 +5,7 @@
  * Date: 27/01/19
  * Time: 06:32
  */
+include_once './config.php';
 
 class dbConnect
 {
@@ -32,7 +33,6 @@ class dbConnect
      */
     function connect()
     {
-        //include_once dirname(__FILE__) . './Config.php';
 
         // Connecting to mysql database
         $this->conn = mysql_connect(HOST, USERNAME, PASSWORD) or die(mysql_error());

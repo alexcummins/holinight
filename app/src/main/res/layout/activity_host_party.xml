@@ -7,6 +7,16 @@
     tools:context=".HostParty">
 
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar5"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/partyImage"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        tools:layout_editor_absoluteX="8dp" />
+
     <android.support.constraint.Guideline
         android:id="@+id/vLeft"
         android:layout_width="wrap_content"
@@ -26,33 +36,77 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="100dp" />
+        app:layout_constraintGuide_begin="50dp" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/hBottom"
+        android:id="@+id/desBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_end="40dp" />
 
+    <android.support.constraint.Guideline
+        android:id="@+id/imageBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
     <ImageButton
         android:id="@+id/partyImage"
-        android:layout_width="315dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageBottom"
         app:layout_constraintEnd_toStartOf="@+id/vRight"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
-        app:layout_constraintTop_toTopOf="@+id/hTop"/>
-        <!--app:srcCompat="@drawable/PlsUploadImeage" />-->
+        app:layout_constraintTop_toTopOf="@+id/hTop"
+        app:srcCompat="@drawable/plsuploadimage" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="504dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Location: London"
+        app:layout_constraintStart_toStartOf="@+id/vLeft"
+        app:layout_constraintTop_toBottomOf="@+id/partyImage" />
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Description"
+        app:layout_constraintBottom_toTopOf="@+id/delete"
+        app:layout_constraintEnd_toStartOf="@+id/vRight"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/vLeft"
+        app:layout_constraintTop_toBottomOf="@+id/location" />
+
+    <Button
+        android:id="@+id/create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Create"
+        app:layout_constraintBaseline_toBaselineOf="@+id/delete"
+        app:layout_constraintEnd_toStartOf="@+id/delete" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Delete"
+        app:layout_constraintBottom_toTopOf="@+id/desBottom"
+        app:layout_constraintEnd_toStartOf="@+id/vRight" />
 
 </android.support.constraint.ConstraintLayout>

@@ -6,6 +6,6 @@ Entry for ICHACK19, https://ichack.org/, by 5 Imperial College London Computing 
 
 * Jordan Kisa
 * Terence Hernandez
-* Kazuya Kai-Oluwa
+* Kazuya Kai-Olowu
 * Alex Cummins
 * Raghav Khanna

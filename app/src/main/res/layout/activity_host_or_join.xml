@@ -12,7 +12,15 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar4"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <Button
             android:id="@+id/HostMain"
@@ -39,13 +47,23 @@
             android:id="@+id/YourEvents"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginBottom="250dp"
             android:background="@drawable/blue_button"
             android:onClick="sendToYourEventsActivity"
             android:text="@string/button_yourevents"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"/>
+            android:textColor="@color/common_google_signin_btn_text_dark_default" />
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentBottom="true"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="675dp" />
     </RelativeLayout>
 
 

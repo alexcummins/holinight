@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toStartOf="@+id/vRight"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
         app:layout_constraintTop_toTopOf="@+id/hTop"
-        app:srcCompat="@drawable/plsuploadimage" />
+ />
 
     <TextView
         android:id="@+id/location"

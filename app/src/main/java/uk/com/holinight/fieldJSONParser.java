@@ -9,7 +9,7 @@ public class fieldJSONParser {
   private String eventID;
   private String description;
   private String hostID;
-  private String hostname;
+  private String hostName;
   private String displayTime;
   private String startTime;
   private String endTime;
@@ -49,7 +49,7 @@ public class fieldJSONParser {
       String eventID,
       String description,
       String hostID,
-      String hostname,
+      String hostName,
       String displayTime,
       String startTime,
       String endTime,
@@ -72,7 +72,7 @@ public class fieldJSONParser {
       this.eventID = jsonObject.getString("eventID");
       this.description = jsonObject.getString("eventDescription");
       this.hostID = jsonObject.getString("hostID");
-      this.hostname = jsonObject.getString("hostName");
+      this.hostName = jsonObject.getString("hostName");
       this.displayTime = jsonObject.getString("displayTime");
       this.startTime = jsonObject.getString("startTime");
       this.endTime = jsonObject.getString("endTime");
@@ -83,7 +83,8 @@ public class fieldJSONParser {
       //this.userName = jsonObject.getString("userName");
       this.userID = jsonObject.getString("userID");
       this.acceptDecline = jsonObject.getString("acceptDecline");
-
+      this.eventImageURL = jsonObject.getString("eventImageURL");
+      this.eventName = jsonObject.getString("eventName");
     } catch (JSONException e) {
       e.printStackTrace();
     }
@@ -146,11 +147,11 @@ public class fieldJSONParser {
   }
 
   public String getHostname() {
-    return hostname;
+    return hostName;
   }
 
   public void setHostname(String hostname) {
-    this.hostname = hostname;
+    this.hostName = hostname;
   }
 
   public String getDisplayTime() {

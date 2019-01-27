@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
   private EditText passwordField;
   private ImageView logo;
   private static String TAG = "Login Activity";
+  private Bundle bundleData = new Bundle();
   CallbackManager mCallbackManager;
 
   @Override
@@ -126,7 +127,6 @@ public class LoginActivity extends AppCompatActivity {
                   Log.w(TAG, "signInWithEmail:failure", task.getException());
                   Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT)
                       .show();
-                  updateUI(null);
                 }
 
                 // ...
@@ -146,96 +146,99 @@ public class LoginActivity extends AppCompatActivity {
 
   private void updateUI(FirebaseUser user) {
     Log.d(TAG, "update screen");
+    bundleData.putString("userID", user.getUid());
+    bundleData.putString("name", user.getDisplayName());
+
     Intent nextActivity = new Intent(this, HostOrJoin.class);
     startActivity(nextActivity);
   }
 
-  public void verifyLogin(final String email, final String password) {
-
-    class VerifyLoginAsyncTask extends AsyncTask<Void, Void, String> {
-
-      ProgressDialog dialog = ProgressDialog.show(LoginActivity.this, "", "", true);
-
-      @Override
-      protected void onPostExecute(String result) {
-        super.onPostExecute(result);
-        dialog.cancel();
-
-        if (result != null) {
-          try {
-            JSONArray jsonarray = new JSONArray(result);
-            for (int i = 0; i < jsonarray.length(); i++) {
-              JSONObject jsonobject = jsonarray.getJSONObject(i);
-              Log.d(TAG, result);
-              //                        JSONObject items = new JSONObject(result);
-              //                        int value = items.getInt("value");
-              if (Integer.parseInt(jsonobject.getString("id")) == 1) {
-                Toast.makeText(
-                        LoginActivity.this,
-                        "Please enter correct e-mail or password!",
-                        Toast.LENGTH_LONG)
-                    .show();
-              } else {
-
-                //                            JSONArray userDataArray =
-                // items.getJSONArray("users_data");
-                //                            JSONObject userDataJsonObject = userDataArray
-                //                                    .getJSONObject(0);
-
-                Log.d(TAG, "email " + jsonobject.getString("name"));
-                Log.d(TAG, "password" + jsonobject.get("Hostname"));
-                SharedPreferences prefs =
-                    PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
-                SharedPreferences.Editor ed = prefs.edit();
-              }
-            }
-
-            EditText email = (EditText) findViewById(R.id.email_text);
-            email.setText("");
-            EditText password = (EditText) findViewById(R.id.password_text);
-            password.setText("");
-            updateUI();
-
-          } catch (JSONException e) {
-            e.printStackTrace();
-          }
-        }
-      }
-
-      @Override
-      protected String doInBackground(Void... params) {
-        StringBuilder responseStr = new StringBuilder();
-        try {
-          String url = ApplicationConstants.BASE_URL;
-          //                            + email + "&password="
-          //                            + Uri.encode(password);
-          Log.d(TAG, url);
-          HttpGet httpGet = new HttpGet(url);
-
-          HttpResponse response = HttpConnectionManager.getClient().execute(httpGet);
-
-          InputStream responseInputStream = response.getEntity().getContent();
-          BufferedReader bufferedReader =
-              new BufferedReader(new InputStreamReader(responseInputStream));
-
-          String responseLineStr = null;
-          while ((responseLineStr = bufferedReader.readLine()) != null) {
-            responseStr.append(responseLineStr);
-          }
-
-          bufferedReader.close();
-          responseInputStream.close();
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-        Log.d(TAG, responseStr.toString());
-        return responseStr.toString();
-      }
-    }
-
-    VerifyLoginAsyncTask verifyLoginAsyncTask = new VerifyLoginAsyncTask();
-    verifyLoginAsyncTask.execute((Void) null);
-  }
+//  public void verifyLogin(final String email, final String password) {
+//
+//    class VerifyLoginAsyncTask extends AsyncTask<Void, Void, String> {
+//
+//      ProgressDialog dialog = ProgressDialog.show(LoginActivity.this, "", "", true);
+//
+//      @Override
+//      protected void onPostExecute(String result) {
+//        super.onPostExecute(result);
+//        dialog.cancel();
+//
+//        if (result != null) {
+//          try {
+//            JSONArray jsonarray = new JSONArray(result);
+//            for (int i = 0; i < jsonarray.length(); i++) {
+//              JSONObject jsonobject = jsonarray.getJSONObject(i);
+//              Log.d(TAG, result);
+//              //                        JSONObject items = new JSONObject(result);
+//              //                        int value = items.getInt("value");
+//              if (Integer.parseInt(jsonobject.getString("id")) == 1) {
+//                Toast.makeText(
+//                        LoginActivity.this,
+//                        "Please enter correct e-mail or password!",
+//                        Toast.LENGTH_LONG)
+//                    .show();
+//              } else {
+//
+//                //                            JSONArray userDataArray =
+//                // items.getJSONArray("users_data");
+//                //                            JSONObject userDataJsonObject = userDataArray
+//                //                                    .getJSONObject(0);
+//
+//                Log.d(TAG, "email " + jsonobject.getString("name"));
+//                Log.d(TAG, "password" + jsonobject.get("Hostname"));
+//                SharedPreferences prefs =
+//                    PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+//                SharedPreferences.Editor ed = prefs.edit();
+//              }
+//            }
+//
+//            EditText email = (EditText) findViewById(R.id.email_text);
+//            email.setText("");
+//            EditText password = (EditText) findViewById(R.id.password_text);
+//            password.setText("");
+////            updateUI();
+//
+//          } catch (JSONException e) {
+//            e.printStackTrace();
+//          }
+//        }
+//      }
+//
+//      @Override
+//      protected String doInBackground(Void... params) {
+//        StringBuilder responseStr = new StringBuilder();
+//        try {
+//          String url = ApplicationConstants.BASE_URL;
+//          //                            + email + "&password="
+//          //                            + Uri.encode(password);
+//          Log.d(TAG, url);
+//          HttpGet httpGet = new HttpGet(url);
+//
+//          HttpResponse response = HttpConnectionManager.getClient().execute(httpGet);
+//
+//          InputStream responseInputStream = response.getEntity().getContent();
+//          BufferedReader bufferedReader =
+//              new BufferedReader(new InputStreamReader(responseInputStream));
+//
+//          String responseLineStr = null;
+//          while ((responseLineStr = bufferedReader.readLine()) != null) {
+//            responseStr.append(responseLineStr);
+//          }
+//
+//          bufferedReader.close();
+//          responseInputStream.close();
+//        } catch (Exception e) {
+//          e.printStackTrace();
+//        }
+//        Log.d(TAG, responseStr.toString());
+//        return responseStr.toString();
+//      }
+//    }
+//
+//    VerifyLoginAsyncTask verifyLoginAsyncTask = new VerifyLoginAsyncTask();
+//    verifyLoginAsyncTask.execute((Void) null);
+//  }
 
   public void forgotPasswordButton(View view) {
     Intent mainIntent = new Intent(LoginActivity.this, SwipeSearch.class);
@@ -255,10 +258,6 @@ public class LoginActivity extends AppCompatActivity {
     return string;
   }
 
-  private void updateUI() {
-    Intent nextActivity = new Intent(this, HostOrJoin.class);
-    startActivity(nextActivity);
-  }
 
   private void handleFacebookAccessToken(AccessToken token) {
     Log.d(TAG, "handleFacebookAccessToken:" + token);
@@ -275,6 +274,7 @@ public class LoginActivity extends AppCompatActivity {
                   // Sign in success, update UI with the signed-in user's information
                   Log.d(TAG, "signInWithCredential:success");
                   FirebaseUser user = mAuth.getCurrentUser();
+
                   updateUI(user);
                 } else {
                   // If sign in fails, display a message to the user.

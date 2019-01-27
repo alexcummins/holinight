@@ -2,10 +2,19 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/hostBitch"
+    android:id="@+id/Constraint Layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".JoinParty">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar6"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginBottom="8dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/imageTop"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     <ImageView
         android:id="@+id/partyImage"
@@ -17,6 +26,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/imageBottom"
         app:layout_constraintEnd_toStartOf="@+id/vRight"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
         app:layout_constraintTop_toTopOf="@+id/imageTop"
         app:srcCompat="@drawable/logo" />
@@ -24,17 +34,18 @@
     <TextView
         android:id="@+id/description"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:lines="10"
         android:text="Description"
-        app:layout_constraintBottom_toTopOf="@+id/hBottom"
+        app:layout_constraintBottom_toTopOf="@+id/delete"
         app:layout_constraintEnd_toStartOf="@+id/vRight"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
-        app:layout_constraintTop_toTopOf="@+id/descriptionTop" />
+        app:layout_constraintTop_toBottomOf="@+id/location" />
 
     <android.support.constraint.Guideline
         android:id="@+id/vLeft"
@@ -65,24 +76,30 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/descriptionTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/hTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="40dp" />
-
-    <android.support.constraint.Guideline
         android:id="@+id/hBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_end="40dp" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Delete"
+        app:layout_constraintBottom_toTopOf="@+id/hBottom"
+        app:layout_constraintEnd_toStartOf="@+id/vRight" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Location: London"
+        app:layout_constraintStart_toStartOf="@+id/vLeft"
+        app:layout_constraintTop_toTopOf="@+id/imageBottom" />
 
 </android.support.constraint.ConstraintLayout>

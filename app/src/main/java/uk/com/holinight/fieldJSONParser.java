@@ -8,6 +8,7 @@ public class fieldJSONParser {
 
     private String name;
     private String eventID;
+    private String description;
     private String hostID;
     private String hostname;
     private String displayTime;
@@ -25,7 +26,7 @@ public class fieldJSONParser {
     }
 
     public fieldJSONParser(
-            String name, String eventID, String hostID, String hostname, String displayTime,
+            String name, String eventID, String description, String hostID, String hostname, String displayTime,
             String startTime, String endTime, String location, String maxRadius, String dateCreated,
             String dateModified, String userName, String userID) {
 
@@ -38,6 +39,7 @@ public class fieldJSONParser {
         try {
             this.name           = jsonObject.getString("name");
             this.eventID        = jsonObject.getString("eventID");
+            this.description    = jsonObject.getString("description");
             this.hostID         = jsonObject.getString("hostname");
             this.hostname       = jsonObject.getString("hostname");
             this.displayTime    = jsonObject.getString("displayTime");
@@ -71,6 +73,14 @@ public class fieldJSONParser {
 
     public void setEventID(String eventID) {
         this.eventID = eventID;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getHostID() {
@@ -160,8 +170,6 @@ public class fieldJSONParser {
     public void setUserID(String userID) {
         this.userID = userID;
     }
-
-
 
 
 }

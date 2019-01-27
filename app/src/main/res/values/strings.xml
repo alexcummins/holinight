@@ -81,4 +81,8 @@
     <string name="facebook_app_id">300055137254607</string>
     <string name="fb_login_protocol_scheme">fb300055137254607</string>
     <string name="button_yourevents">Your Events</string>
+    <string name="max_radius_miles">Max Radius (Miles)</string>
+    <string name="location">Location</string>
+    <string name="event_description">Event Description</string>
+    <string name="event_name">Event Name</string>
 </resources>

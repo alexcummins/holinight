@@ -70,7 +70,7 @@
         android:id="@+id/eventName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Event Name"
+        android:hint="@string/event_name"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
         app:layout_constraintTop_toBottomOf="@+id/partyImage" />
 
@@ -78,7 +78,7 @@
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Event Description"
+        android:hint="@string/event_description"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
         app:layout_constraintTop_toBottomOf="@+id/location" />
 
@@ -87,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:hint="Location"
+        android:hint="@string/location"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
         app:layout_constraintTop_toBottomOf="@+id/eventName" />
 
@@ -96,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:hint="Max Radius (Miles)"
+        android:hint="@string/max_radius_miles"
         app:layout_constraintStart_toStartOf="@+id/vLeft"
         app:layout_constraintTop_toBottomOf="@+id/description" />
 
